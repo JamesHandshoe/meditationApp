@@ -13,9 +13,7 @@ var $book = $('#book');
 var $chapter = $('#chapter');
 var $verse = $('#verse');
 var $findScripture = $('#find-scripture');
-var book = $book.val();
-var chapter = $chapter.val();
-var verseNum = $verse.val();
+
 var verse = "";
 
 //this function uses mustache.js to format the html/info
@@ -29,10 +27,10 @@ $(document).ready(function(){
 	$findScripture.on('click', function(){
 		book = $book.val();
 		chapter = $chapter.val();
-		verse = $verse.val();
-		search = "p=" + book + chapter + ":" + verse;
+		verseNum = $verse.val();
+		search = "p=" + book + chapter + ":" + verseNum;
 		console.log(search);
-
+		console.log(verseNum);
 	//AJAX GET Function - calling the Bible API
 		$.ajax({
 			type: 'GET',
@@ -43,23 +41,17 @@ $(document).ready(function(){
 			success: function(json) {	
 				$.each(json.book, function(index, info){
 					//console.log(info.book_name);
-					book = info.book_name;
-					console.log(book)
-					//console.log(info.chapter_nr);
-					chapter = info.chapter_nr
-					console.log(chapter);
 					$.each(info.chapter, function(index, info){
-						console.log(info.verse_nr);
-						verseNum = info.verse_nr;
-						console.log(verseNum);
-						//console.log(value.verse);
-						verse = info.verse;
-						console.log(verse);
 						
+						verse = info.verse;
+						verseNumber = info.verse_nr;
+						$scripture.append("<p>" + "<sup>" + verseNumber + "</sup>" + verse + "</p>");
+					
+					});	
 						//append information to the DOM
-						$reference.append("<p>" + book + " " + chapter + ":" + verseNum);
-						$scripture.append("<p>" + verse + "</p>");
-					});
+
+					$reference.append("<p>" + book + " " + chapter + ":" + verseNum);
+						
 				});		
 				
 
