@@ -12,6 +12,7 @@ var $scripture = $('#scripture');
 var $book = $('#book');
 var $chapter = $('#chapter');
 var $verse = $('#verse');
+var $version = $('#bibleVersions');
 var $findScripture = $('#find-scripture');
 
 var verse = "";
@@ -28,7 +29,8 @@ $(document).ready(function(){
 		book = $book.val();
 		chapter = $chapter.val();
 		verseNum = $verse.val();
-		search = "p=" + book + chapter + ":" + verseNum;
+		version = $version.val();
+		search = "p=" + book + chapter + ":" + verseNum + "&v=" + version;
 		console.log(search);
 		console.log(verseNum);
 	//AJAX GET Function - calling the Bible API
@@ -50,7 +52,7 @@ $(document).ready(function(){
 					});	
 						//append information to the DOM
 
-					$reference.append("<p>" + book + " " + chapter + ":" + verseNum);
+					$reference.append("<p><strong>" + book + " " + chapter + ":" + verseNum + "</strong></p>");
 						
 				});		
 				
