@@ -15,7 +15,7 @@ var $findScripture = $('#find-scripture');
 
 //this function uses mustache.js to format the html/info
 
-var scriptureTemplate = 
+
 
 
 $(document).ready(function(){
@@ -25,7 +25,7 @@ $(document).ready(function(){
 		book = $book.val();
 		chapter = $chapter.val();
 		verse = $verse.val();
-		search = "p=" + book + chapter + ":" + verse;
+		search = "";
 		console.log(search);
 
 	//AJAX GET Function - calling the Bible API

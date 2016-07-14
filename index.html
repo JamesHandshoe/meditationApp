@@ -2,73 +2,125 @@
 <html>
 <head>
 	<title>Meditation App</title>
+	<link href="http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
 	<link rel="stylesheet" type="text/css" href="css/main.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
 
 </head>
 <body>
-	<h1>Meditation App</h1>
-	<h2>Search Scripture</h2>
+	<div class="col-lg-12">
+		<div class="col-lg-8">
+			<h1 id="title">Meditation App</h1>
+			<hr>
+			<h3>Search Scripture</h3>
+			<br>
+			<p>Enter a book of the Bible:      <input type="text" id="book"></p>
+			<p>Enter the chapter of the Bible: <input type="text" id="chapter"></p>
+			<p>Enter the verse or verses:      <input type="text" id="verse"></p>
+			<P>Select the version of the Bible prefered:</p>
+			<form>
+				<select id="bibleVersions">
+					<option value="aov">Afrikaans: Ou Vertaling</option>
+					<option value="albanian">Albanian: Albanian</option>
+					<option value="hsab">Amharic: Haile Selassie Amharic Bible</option>
+					<option value="arabicsv">Arabic: Smith and Van Dyke</option>
+					<option value="bulgarian1940">Bulgarian: Bulgarian Bible</option>
+					<option value="cnt">Chinese: NCV Traditional</option>
+					<option value="cus">Chinese: Union Simplified</option>
+					<option value="cns">Chinese: NCV Simplified</option>
+					<option value="cut">Chinese: Union Traditional</option>
+					<option value="croatia">Croatian: Croatian</option>
+					<option value="danish">Danish: Danish</option>
+					<option value="statenvertaling">Dutch: Dutch Staten Vertaling</option>
+					<option value="kjv">English: King James Version</option>
+					<option value="akjv">English: KJV Easy Read</option>
+					<option value="asv">English: American Standard Version</option>
+					<option value="amp">English: Amplified Version</option>
+					<option value="basicenglish">English: Basic English Bible</option>
+					<option value="darby">English: Darby</option>
+					<option value="nasb">English: New American Standard</option>
+					<option value="ylt">English: Young's Literal Translation</option>
+					<option value="web">English: World English Bible</option>
+					<option value="wb">English: Webster's Bible</option>
+					<option value="esperanto">Esperanto: Esperanto</option>
+					<option value="estonian">Estonian: Estonian</option>
+					<option value="finnish1776">Finnish: Finnish Bible</option>
+					<option value="martin">French: Martin</option>
+					<option value="luther1912">German: Luther</option>
+					<option value="moderngreek">Greek: Greek Modern</option>
+					<option value="text">Greek: Textus Receptus</option>
+					<option value="aleppo">Hebrew: Aleppo Codex</option>
+					<option value="karoli">Hungarian: Hungarian Karoli</option>
+					<option value="giovanni">Italian: Giovanni Diodati Bible</option>
+					<option value="korean">Korean: Korean</option>
+					<option value="bibelselskap">Norwegian: Bibelselskap</option>
+					<option value="almeida">Portuguese: Almeida Atualizada</option>
+					<option value="synodal">Russian: Synodal Translation</option>
+					<option value="valera">Spanish: Reina Valera</option>
+					<option value="swahili">Swahili: Swahili</option>
+					<option value="swedish">Swedish: Swedish</option>
+					<option value="turkish">Turkish: Turkish</option>
+					<option value="vietnamese">Vietnamese: Vietnamese</option>
+					<option value="xhosa">Xhosa: Xhosa</option>
+				</select>
+			</form>
+			<br>
+			<button id="find-scripture" class="btn">Find Scripture</button>
+		</div>
+		<br>
+		<br>
 
-	<p>Enter a book of the Bible:      <input type="text" id="book"></p>
-	<p>Enter the chapter of the Bible: <input type="text" id="chapter"></p>
-	<p>Enter the verse or verses:      <input type="text" id="verse"></p>
-	<P>Select the version of the Bible prefered:</p>
-	<form>
-		<select id="bibleVersions">
-			<option value="aov">Afrikaans: Ou Vertaling</option>
-			<option value="albanian">Albanian: Albanian</option>
-			<option value="hsab">Amharic: Haile Selassie Amharic Bible</option>
-			<option value="arabicsv">Arabic: Smith and Van Dyke</option>
-			<option value="bulgarian1940">Bulgarian: Bulgarian Bible</option>
-			<option value="cnt">Chinese: NCV Traditional</option>
-			<option value="cus">Chinese: Union Simplified</option>
-			<option value="cns">Chinese: NCV Simplified</option>
-			<option value="cut">Chinese: Union Traditional</option>
-			<option value="croatia">Croatian: Croatian</option>
-			<option value="danish">Danish: Danish</option>
-			<option value="statenvertaling">Dutch: Dutch Staten Vertaling</option>
-			<option value="kjv">English: King James Version</option>
-			<option value="akjv">English: KJV Easy Read</option>
-			<option value="asv">English: American Standard Version</option>
-			<option value="amp">English: Amplified Version</option>
-			<option value="basicenglish">English: Basic English Bible</option>
-			<option value="darby">English: Darby</option>
-			<option value="nasb">English: New American Standard</option>
-			<option value="ylt">English: Young's Literal Translation</option>
-			<option value="web">English: World English Bible</option>
-			<option value="wb">English: Webster's Bible</option>
-			<option value="esperanto">Esperanto: Esperanto</option>
-			<option value="estonian">Estonian: Estonian</option>
-			<option value="finnish1776">Finnish: Finnish Bible</option>
-			<option value="martin">French: Martin</option>
-			<option value="luther1912">German: Luther</option>
-			<option value="moderngreek">Greek: Greek Modern</option>
-			<option value="text">Greek: Textus Receptus</option>
-			<option value="aleppo">Hebrew: Aleppo Codex</option>
-			<option value="karoli">Hungarian: Hungarian Karoli</option>
-			<option value="giovanni">Italian: Giovanni Diodati Bible</option>
-			<option value="korean">Korean: Korean</option>
-			<option value="bibelselskap">Norwegian: Bibelselskap</option>
-			<option value="almeida">Portuguese: Almeida Atualizada</option>
-			<option value="synodal">Russian: Synodal Translation</option>
-			<option value="valera">Spanish: Reina Valera</option>
-			<option value="swahili">Swahili: Swahili</option>
-			<option value="swedish">Swedish: Swedish</option>
-			<option value="turkish">Turkish: Turkish</option>
-			<option value="vietnamese">Vietnamese: Vietnamese</option>
-			<option value="xhosa">Xhosa: Xhosa</option>
-		</select>
-	</form>
+		<br>
+		<br>
+		<div class="col-lg-12">
+			<div id="reference"><p></p></div>
+			<br>
+			<div id="scripture"><p></p></div>
+		</div>
+	</div>
 	<br>
 	<br>
-	<button id="find-scripture">Find Scripture</button>
-	<br>
-	<div id="reference"></div>
-	<div id="scripture"></div>
+	<div class="col-lg-12">
+		<br>
+		<br>
+		<div class="col-lg-3">
+			<div id="question-one">
+				<p>How does this verse affect my relationship with God?</p>
+				<textarea rows="20" cols="30" name="answer-one" class="answer"></textarea>
+			</div>
+		</div>
+
+		<div class="col-lg-3">
+			<div id="question-two">
+				<p>How does this verse affect my relationship with God?</p>
+				<textarea rows="20" cols="30" name="answer-two" class="answer"></textarea>
+			</div>
+		</div>
+
+		<div class="col-lg-3">
+			<div id="question-three">
+				<p>How does this verse affect my relationship with God?</p>
+				<textarea rows="20" cols="30" name="answer-three" class="answer"></textarea>
+			</div>
+		</div>
+
+		<div class="col-lg-3">
+			<div id="question-four">
+				<p>How does this verse affect my relationship with God?</p>
+				<textarea rows="20" cols="30" name="answer-four" class="answer"></textarea>
+			</div>
+			
+		</div>
+		<div class="col-lg-3">
+			<br>
+			<button id="submit-answers" class="btn">Submit Thoughts</button>
+		</div>
+	</div>
 <!--js files-->
 	<script src="js/app.js"></script>
+	
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/2.2.1/mustache.min.js"></script>
 </body>
 </html>
